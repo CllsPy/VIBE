@@ -4,4 +4,9 @@ version = "0.1.0"
 description = ""
 authors = ["Your Name <you@example.com>"]
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+    "youtube-transcript-api>=1.0.3",
+    "google-genai",
+    "python-dotenv>=1.1.0",
+    "sift-stack-py>=0.6.0",
+]
