@@ -1,5 +1,6 @@
 from youtube_transcript_api import YouTubeTranscriptApi
 
+
 class Transcription:
     def __init__(self):
         pass
@@ -7,7 +8,7 @@ class Transcription:
     def get_transcript_text(self, video_id):
         print("calling")
         try:
-            print('trying')
+            print("trying")
             # Fetch the transcript
             transcript = YouTubeTranscriptApi.get_transcript(video_id)
             # Combine transcript lines
