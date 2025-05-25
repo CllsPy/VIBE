@@ -6,9 +6,7 @@ class Transcription:
         pass
 
     def get_transcript_text(self, video_id):
-        print("calling")
         try:
-            print("trying")
             # Fetch the transcript
             transcript = YouTubeTranscriptApi.get_transcript(video_id)
             # Combine transcript lines
