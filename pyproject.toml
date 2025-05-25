@@ -9,4 +9,5 @@ dependencies = [
     "google-genai",
     "python-dotenv>=1.1.0",
     "sift-stack-py>=0.6.0",
+    "streamlit>=1.45.1",
 ]
