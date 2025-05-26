@@ -4,7 +4,7 @@ import streamlit as st
 import time
 import sys
 import os
-os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+
 file_path = os.path.join(os.getcwd(), "transcript.txt")
 
 st.set_page_config(
