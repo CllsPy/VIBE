@@ -9,7 +9,7 @@ class Transcription:
     def get_transcript_text(self, video_id):
         try:
             # Buscar transcrição
-            transcript = YouTubeTranscriptApi.get_transcript(video_id, languages=['en', 'pt', 'fr'])
+            transcript = YouTubeTranscriptApi.get_transcript(video_id)
 
             # Juntar o texto
             script = "\n".join([f"{item['text']}" for item in transcript])
