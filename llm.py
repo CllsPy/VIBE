@@ -12,8 +12,8 @@ class LLM:
         GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
         return GEMINI_API_KEY
 
-    def call_llm(self, content):
-        client = genai.Client(api_key=self.get_api())
+    def call_llm(self, content, api):
+        client = genai.Client(api_key=api)
         response = client.models.generate_content(
             model="gemini-2.0-flash",
             contents=f"""Você é especialista em escrever blogs, siga as instruções abaixo para realizar a tarefa:

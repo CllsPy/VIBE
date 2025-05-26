@@ -52,6 +52,18 @@ st.markdown("""\n""")
 
 with st.sidebar:
     st.info("made with ♥ by CLL")
+    api = st.text_input("Password", type="password")
+    
+    st.markdown(
+        """
+    <style>
+        [title="Show password text"] {
+            display: none;
+        }
+    </style>
+    """,
+        unsafe_allow_html=True,
+    )
 
 with st.form('Formulário'):
     st.header("Resposta")
@@ -62,7 +74,7 @@ with st.form('Formulário'):
         id = st.text_input("Cole o ID de algum vídeo")
 
     submit_button = st.form_submit_button('Submit')
-
+   
     file_path = os.path.join(os.getcwd(), "transcript.txt")
 
     with tab2: 
@@ -75,13 +87,13 @@ with st.form('Formulário'):
                  with open(file_path, "r", encoding="utf-8") as file:
                      file = file.read()
                      llm_calling = LLM()
-                     st.markdown(llm_calling.call_llm(file))
+                     st.markdown(llm_calling.call_llm(file, api))
 
     with tab3:
          try:
              with open(file_path, "r", encoding="utf-8") as file:
                  file = file.read()
-                 st.markdown(file)
+                 st.write(file)
          except FileNotFoundError:
              st.warning("Nenhuma transcrição encontrada ainda.")
         
