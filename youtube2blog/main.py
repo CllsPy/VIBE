@@ -5,6 +5,7 @@ import time
 import sys
 import os
 os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+file_path = os.path.join(os.getcwd(), "transcript.txt")
 
 st.set_page_config(
     page_title="IU2B",
@@ -69,12 +70,12 @@ with st.form('Formulário'):
     
             with st.spinner("Loading..."):
                 time.sleep(3)
-                with open("transcript.txt", "r") as file:
+                with open(file_path, "r") as file:
                     file = file.read()
                     llm_calling = LLM()
                     st.markdown(llm_calling.call_llm(file))
     with tab3:
-         with open("transcript.txt", "r") as file:
+         with open(file_path, "r") as file:
              file = file.read()
              st.markdown(file)
                 
