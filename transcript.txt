@@ -1,0 +1,206 @@
+many years ago long before most of you
+were conceived we lived in a Utopia
+where if you wanted to use software you
+would walk into a store buy a box with a
+CD or floppy disc inside of it insert it
+into your computer and then it was yours
+to keep forever but then one day the
+devil got a job as a product manager at
+a software company and had this clever
+idea called SAS or software as a service
+when you buy it you don't actually own
+it and just rent it for a monthly fee
+until the day you die this caused
+profits to go parabolic and nowadays
+companies are looking to squeeze the
+lemon even harder like pelaton is going
+to charge a $95 reactivation fee if you
+buy a used bike on Craigslist Logitech
+is looking to roll out a pay as youo
+Mouse which gives a new meaning to pay
+per click an adobe was recently sued by
+the FTC for its predatory hidden early
+termination fees the only world that
+doesn't have this problem is Temple OS
+but the reality is that nobody is
+forcing you to buy these products in a
+free market and the best way to escape
+subscription hell is to use free and
+open source software Alternatives that
+these big companies don't want you to
+know about before we get into it make
+sure to draw and quarter that like
+button and put the subscription button's
+head on a pike it really helps out the
+channel aside from Windows itself which
+can easily be replaced by Linux the most
+profitable software of all time is
+likely Microsoft Office they get kids
+hooked on it in grade school so they can
+grow up to spin the hamster wheels that
+churn out Microsoft profits luckily
+though there's a free and open source
+version called Libra office which can do
+almost everything that word excel and
+PowerPoint do and is compatible with a
+crazy number of file formats even
+dumpster fires like docx but it is
+missing some features for Microsoft
+Office like it doesn't require an
+internet connection to invade your
+privacy it doesn't automatically upload
+your documents to the cloud where they
+can someday be breached by hackers or
+feds and it doesn't have a bunch of AI
+garbage built into it if you really want
+those features you should continue to
+pay Microsoft but if you're looking for
+Freedom Libre is the tool now many teams
+have escaped Microsoft Office only to
+land in other paid tools like air table
+which itself is a pretty awesome tool
+but extremely expensive at $45 per month
+per seat what's crazy though is you
+could likely support hundreds of users
+on your own VPS for just a few dollars
+per month by self-hosting Nob it stores
+data in your favorite SQL database but
+turns all the tables into Rich
+spreadsheets which is ideal for
+collaboration but when your boss tells
+you to stop collaborate and listen
+You'll likely need to use a note-taking
+app like notion which is another $10 per
+month once again there's an open source
+alternative called app flowy which is
+written in Rust and flutter not only is
+the UI beautiful and can do things like
+note taking con bonds and calendars but
+noi's most recent Innovation was to shoe
+horn AI into the platform well app flowy
+can do that too and even let you choose
+your own llm provider that's pretty
+awesome but you might be wondering how I
+find out about all these amazing open
+source tools one incredible resource is
+daily. deev the sponsor of today's video
+it's a website and rapidly growing
+community that curates the best
+developer content on the internet and
+the app itself is a free and open source
+project not only will you find the
+hottest developer Trends here but you
+can also find tune your interest by
+joining squads where you'll find other
+experienced developers openly discussing
+the tech you care about the most and
+it's not just a bunch of anonymous Bots
+these are real people from the real
+world that you can network with to land
+a job in real life whether you're
+learning to code or just interested in
+Tech daily. deev is a website that every
+developer should visit on The Daily but
+now it's time to talk about another
+massive software Juggernaut called
+Salesforce they provide customer
+relationship management software that
+allows salespeople to strategically
+annoy you until you buy something
+there's a bunch of good open- source
+crms but one that stands out is Erp next
+which is not only a CRM but also an
+enterprise resource planning tool which
+can handle accounting quality control
+and a bunch of other stuff it's written
+in Python and also maintains its own
+custom web framework called frappe but
+most importantly you can run it in 2
+minutes with Docker and cancel your
+multi-million dollar Salesforce
+contracts now Salesforce also acquired
+the popular chat app slack for 27
+billion yet another application that you
+really don't need to be paying for a
+better option is to use a tool like
+mattermost which is built with go and
+typescript and can be deployed as a
+single binary with a postgress database
+not only is it packed with features for
+chat but also has integrated voice and
+video chat it has front-end clients for
+the web iOS Android and desktop but most
+importantly it gives you total control
+over your data a company like slack
+can't hold your data hostage and demand
+a ransom to get it back but another
+thing you might be paying for that
+doesn't even need to store data is zoom
+back in the pandemic days I once built
+my own video conferencing app from
+scratch with web RTC and JavaScript but
+an even easier approach is to use an
+open source tool like jitsy it uses web
+RTC under the hood to handle voice
+calling but also provides a ton of other
+Fe features like mobile applications
+raised hands polls virtual backgrounds
+and everything else you would expect
+from a zoom alternative but if you're
+unfortunate enough to be a professional
+developer your scrub Master is likely
+tortured you with a device called jira
+which forces you to do Sprints epics
+burnd downs and tickets well the good
+news is that there's a tool called plane
+that makes this torture device free and
+open source it's a torture device for
+developers by developers but if you're
+developing something you might be using
+a tool like Firebase a bass which stands
+for big ass backend now I like big back
+ends and I cannot lie but I also don't
+like paying for them and being locked
+into a close- source platform nowadays
+there are many great open source
+Alternatives like convex aight super
+base pocket base but there's a newcomer
+you likely haven't heard of called
+instant it's not a full backend but if
+you're looking to build a real-time chat
+or collaboration tool it handles the
+client server sync challenges for you
+which is a lot of work to do correctly
+on your own but one thing that's
+relatively easy to do on your own is
+host a website yet many developers
+choose to pay companies like forell or
+Heroku a high premium to do this for
+them you can avoid these taxes with
+tools like kifi the versel alternative
+or daku the Heroku alternative you can
+use tools like this to self-host all of
+the amazing projects that we've looked
+at so far in this video on a single
+virtual private server you get the UI
+and apis of a premium hosting platform
+just without the massive bills and free
+toer rug Poes but now we need to talk
+about perhaps the most greedy software
+developer Adobe I speak to you as a
+hypocrite though as I edit this video in
+Adobe Premiere for which I pay a $59
+monthly tribute as a free human being
+though I could trade Adobe suite for
+pirated Adobe suite or better yet trade
+premiere for Da Vinci resolve and trade
+illustrator for Crea and trade after
+effects for blender virtually every SAS
+product has a free and open- Source
+self-hosted alternative never paying for
+software again is going to be a
+challenge but remember as developers we
+don't do things because they are easy we
+do them because we thought they were
+going to be easy thanks for watching and
+I will see you in the next one
