@@ -1,563 +1,137 @@
-Branches are one of the most important concepts. 
-In this course, Tobias will give you a thorough  
-understanding on how branches work in Git. And 
-don't forget to hit that subscribe button so you  
-don't miss any of our great courses. Hello Free 
-Code Camp friends. My name is Tobias and I'm going  
-to explain how to work with branches in Git. One 
-of the core and most important topics in Git and  
-version control is how you can productively 
-work with your branches and what you can do  
-to start off. But before we go, let me have a 
-huge shout out to the people at Free Code Camp  
-for teaching people how to code for 
-free on the internet. Thank you so much  
-for being on that mission. And thank you 
-for letting me help a little bit with that  
-contribution. A couple of words about my 
-background, I'm part of the team behind tower  
-tower is a graphical user interface for Git on Mac 
-and Windows. And we've been around for more than  
-10 years now. And in those 10 years, we've 
-helped around 100,000 people in companies  
-big and small freelancers, every developer 
-in every part of the world, work more easily  
-with the good version control system, take the 
-headache out of good and make it more more easy.  
-This workshop today will not be about tower, don't 
-worry, you don't have to have tower installed,  
-we will do everything on the command line. So you 
-can follow along, no matter what you're using.  
-So before we start, what's this going to be about? 
-branches are one of the core concepts in Git. And  
-there's really an endless amount of things you 
-can do with them, you can create and delete them,  
-you can compare, you can merge and rebase them you 
-can publish and track them. So we're talking about  
-all of those things that you can do with your 
-branches. Before we dive into the specifics,  
-let me just briefly talk about two core 
-concepts that are mentioned again and again.  
-So one is the head branch. If you don't know 
-that term, that's pretty important. It is the  
-currently active or the checked out branch, 
-you can have many branches in your repository,  
-but you can have only one. And that is active at 
-a single time. So if you hit get status on your  
-command line or are in a graphical user interface, 
-you will see you are on a certain branch in this  
-example here on branch master. So master is 
-currently the head branch, the active branch.  
-And the other core concept is the distinction 
-between local and remote branches.  
-So when we're working with branches, we are in 99% 
-of the time or 95% of the time, we're working with  
-branches in our local Git repository, right? 
-The remote branches in your GitHub, git lab,  
-Bitbucket, as your DevOps, whatever you have, that 
-they're more for synchronizing, right, the bulk of  
-the actual work happens in your local branches on 
-your local machine in your local Git repository.  
-Alright, let's start by creating new branches. 
-Right. So before you can work with branches, you  
-will first need to have some in your repository. 
-And to create a new branch, you can just use the  
-git branch, command and provide the name of 
-your branch. So my new branch is the name of  
-that new branch. And when I do it like that, when 
-providing just a name to the git branch command,  
-git will assume that I want to start my new branch 
-based on the currently checked out revision. So  
-I'm going to create a new branch on the situation 
-that I was to this point. So if I'd like to create  
-a new branch at a specific other revision, 
-let's say, let's see what revisions we have  
-in this repository. By the way, so this is this 
-tower, the graphical user interface that we make.  
-So here is my new branch, I just created that. 
-So that worked good news. If I want to create my  
-branch on a different revision, let's say 
-I want to start here, I can just copy the  
-revision hash of that commit here. And then 
-on the command line, I can type git branch,  
-other branch, that's the name and I wanted 
-to start on that revision here. Alright,  
-let's see what that did. Alright, and new 
-branch. So that worked. And it started  
-on that revision here, right? So you're pretty 
-flexible with how you want to start your branches.  
-And again, as I mentioned briefly, in that 
-core concept area just a few seconds ago,  
-you can only create new branches 
-in your local repository, right?  
-Creating branches in a remote repository, happens 
-by publishing an existing local branch so I can, I  
-can upload these here, but I can't Create a branch 
-on a remote, we'll talk about that later on.  
-Or write git branch, either without 
-mentioning a specific revision, then it's  
-going to be your current revision, or mentioning 
-a specific one to started on a specific revision.  
-Alright, switching branches, of course, another 
-very important action you're going to use all of  
-the time. So the current branch, the checked out 
-branch, so to say, the head branch, defines the  
-context your work is in at the moment. And the 
-current head branches where new commits will be  
-created, they will be created in that context. And 
-to change the branch you're currently working in.  
-This means to check out another branch or to 
-switch a branch. And let's see how we can do that.  
-All right, so at the moment, if I hit git 
-status, I can see I am on branch main. So main is  
-currently checked out, this is my head branch. 
-And if I want this to be a different branch,  
-I can type git checkout. And while we 
-have so many beautiful new branches,  
-get new branch. And while I switched to 
-branch, my new branch, so the git checkout  
-command is pretty versatile. It's it's used 
-for so many things. In recent years, there  
-has been a new command added to the Git command 
-palette, and I would suggest you use Git switch  
-in the future. Because Git switch is only for this 
-purpose. It's only for switching branches. So if  
-we want to switch to we created other branch, I 
-can type Git switch, other branch and get switch,  
-as I said, is a little bit more unambiguous. 
-Because it only has this purpose. git checkout  
-is a command with lots and lots of meanings. 
-So I'm more comfortable using Git switch,  
-git checkout and get switch again. So you can see 
-in a graphical user interface, this is where the  
-head pointer now points to. So other branches, 
-currently the checked out the active branch.  
-Okay, number three renaming branches, it's 
-pretty easy to miss type A branches name or to  
-change your mind after the fact. So don't 
-worry, you can rename branches, of course,  
-and get makes it pretty easy to rename your 
-local head branch. So let's do that. So  
-we are currently on. Again, let's type git status 
-to make sure we are on branch other branch.  
-And if I'm not happy with that naming, I can 
-just change it using git branch with the dash  
-m parameter, and then provide a new name. 
-So better branch, let's call it like that.  
-And take a look. Okay, I'm now on branch, 
-better branch. And that was pretty easy.  
-So in case you want to rename a different branch, 
-not the head branch, not the currently checked out  
-branch, then we have to provide the name of the 
-old branch to to make this an ambiguous so at the  
-moment, we have, let's see what branches we have. 
-We're using git branch without any parameters. All  
-right, so better branch main and my new branch. 
-So let's say I want to rename a non head branch,  
-a branch that is not currently checked out. 
-Let's say I want to rename my new branch here. So  
-let's make some room. Alright, so let's rename 
-git branch, dash m, my new branch and call it  
-my better branch. Let's see if that work. git 
-branch without any parameters shows you what  
-branches you currently have. And voila, we just 
-changed the name of a non head branch like this.  
-So these commands are used to work for changing 
-local branch names. If you'd like to rename a  
-remote branch, things are a little bit more 
-complicated because Git doesn't allow you  
-to rename rogue remote branches really. 
-So in practice, renaming a remote branch  
-can be done by deleting the old one and then 
-pushing up publishing the new one from your  
-local repository. So let's take another look 
-at what we have. So if I'm not happy with  
-origin, staging that naming here, I can delete 
-that and then re upload it and I'll show you  
-how to publish upload your brand For the first 
-time in a second, so we can see how that works.  
-All right, renaming branches with the git 
-branch dash M. Command. And if you have  
-a non head branch that you want to rename, 
-provide the old name, and then the new name.  
-This is for renaming remote branches. And we'll do 
-that in a while we are creating a new branch and  
-pushing that for the first time. So we can do two 
-things in one. All right publishing branches. As I  
-already said, it's not really possible to create a 
-new branch on a remote repository. What we can do,  
-however, is republish an existing local branch on 
-a remote repository. So we can upload what we have  
-locally to the remote server and thereby share it 
-with our team, right. So let's see what we have  
-and what we can publish. Okay, so at the moment, 
-we have this beautiful feature uploader branch  
-here, and it's not present on the remote. So let's 
-say I want to publish that for the first time,  
-I want to upload it to the remote server named 
-origin. And let's let's do that on the command  
-line. So I can just use git push dash u, I'll 
-explain what the new flag is in a second.  
-On the Origin remote, and it's the feature, loader 
-branch. Right, looking good. All right, here we  
-go. So we've just uploaded that to that branch 
-here, that local branch to the remote repository.  
-Now, we'll be talking about this dash you 
-flag here in great detail in a second. But  
-to give you the the the nutshell, right now, it 
-tells Git to establish a tracking connection.  
-And this means pushing and pulling later on will 
-be much, much, much, much more easy in the future.  
-So let's talk about that in detail. Because 
-the whole topic of tracking branches is really  
-important to understand. By default, local and 
-remote branches have nothing to do with each  
-other, they're stored and managed as independent 
-objects in Git. But in real life, of course,  
-local and remote branches often do have a 
-relationship with each other. For example,  
-a remote branch is often something like a 
-counterpart of a local one, right? Such a  
-relationship can be established in Git. So one 
-branch typically a remote one, or a local ones,  
-sorry, contrac. Another one, typically a remote 
-one. So in this little diagram, here, you can  
-see we have a local branch, it's called develop, 
-and we have a remote branch on the origin remote,  
-that's also called develop, and of course, I 
-want them to have a relationship with each other,  
-they're the counterparts of each other. And 
-with that tracking relationship establish,  
-when I later pull, or push, when I push from 
-my local branch or pull from my remote branch,  
-I can simply use the vanilla Git commands, I can 
-use git push and get pulled without any further  
-flags or parameters, because the tracking 
-connection already knows in the can fill in  
-the blank. So which branch on which remote do I 
-want to push to or pull from, for example, all of  
-that is already saved in the tracking connection. 
-And we've already used such one way to establish  
-that so tracking connection when we use git push 
-with the you option to publish that local branch.  
-And after that, as I said, we can guess just use 
-git push without mentioning the remote or the  
-target branch or the source branch, this all works 
-out. And this also works the other way around. So  
-what we did was publish a local branch to a 
-remote repository. But we can also go ahead and  
-track or download a remote branch and bring 
-it to the local repository right the other  
-way around is also possible. And we can also 
-establish a tracking connection like that.  
-So let's see what we have. This would 
-be number five. And we currently have,  
-right, a feature login branch on the remote 
-that is not present here in my local branches.  
-So let's say somebody else worked on that feature, 
-log in branch and I want to join that work and  
-work with that branch. So let's get 
-that branch to my local branches.  
-And the way to do that is either to 
-use git branch with the dash dash track  
-option. And this will be feature login. 
-And it's coming from origin feature, login.  
-So by that I created a local branch called feature 
-login, that is based on origin feature login.  
-And they know about each other, right? I 
-established that tracking connection, and voila,  
-here we go, we now have that locally. And in 
-a graphical user interface like tower, I can  
-see that yes, there is a tracking connection, 
-right, this local branch tracks the remote one.  
-Another way to do that, well, 
-let's create another branch  
-feature, downloader, so we have another local 
-branch that is not present on the, on the  
-remote. And we'll publish that really quickly. And 
-then remove it from here from my local branches.  
-Right, so again, we have that situation, I 
-want to have that feature downloader branch  
-on my local branches. And currently, it's only 
-present on the remote. So another way to do that,  
-instead of git branch dash dash track is 
-to use the git checkout command. And again,  
-with the track option, so that's the same. And 
-I'm basing that on origin feature, downloader.  
-And by not naming a local branch and just 
-specifying the base, remote branch, get uses that  
-branch name for the local branches name, so I now 
-have feature downloader here again, same thing  
-as before, so it doesn't really matter if you're 
-using git branch dash dash track or git checkout  
-distressed track, it's just another way of doing 
-that. Okay, tracking branches, very important,  
-either with git branch, distressed track, 
-or with git checkout, dash dash track,  
-pulling and pushing branches. So once you have 
-your tracking connection set up properly, pulling  
-and pushing is really simple and almost boring, 
-actually. So that's why I strongly suggest to  
-work with the commands I showed you before either. 
-When publishing a local branch with git push dash,  
-you are when tracking a remote branch from the 
-other side with git checkout dash track command,  
-because again, once this tracking connection 
-is set up, all you need to do is use Git pull,  
-and git push to sync your branches, right 
-get pulled to download new commits from  
-the remote probably from your colleagues, and 
-get push for uploading or publishing your own  
-new work to the remote server. You don't need with 
-the striking connection setup, you didn't need any  
-additional parameters, you don't need to specify 
-the remote like origin and the base branch or  
-the target branch and the source branch. Just get 
-pulled and get push is enough. So that's the real  
-advantage of using those tracking connections. 
-Let's take another look at what we have here.  
-and see what's happening. Okay, so currently we 
-are on the feature login branch. And the Another  
-advantage of having those tracking connections 
-set up is that Git tells me if my local branch  
-and the tract remote branch diverge. And that 
-means that let's take another look at tower  
-and what what this looks like. So this feature 
-login branch here has little numbers here. And  
-this means one commit hasn't been pushed 
-yet. So the remote version of that branch  
-doesn't have one commit that I produced locally. 
-And the other way around. Two commits are present  
-on the remote end to probably a co worker or 
-a teammate made some commits. And I haven't  
-pulled those down. I haven't downloaded those. So 
-this is really interesting to stay on track and  
-understand how local and remote branches 
-diverged if there's something that I forgot  
-to push or haven't pushed yet. Or if there's 
-something that I need to pull I need to update.  
-And with the command line with the git branch,  
-dash v command, I can get the same information. 
-So I see feature logging is ahead one  
-behind two ahead means I have Local commit 
-that is not pushed yet behind means I am  
-behind the remote. So there are new commits on the 
-remote that I haven't pulled. Pretty interesting  
-information to understand where you are, how 
-you act, how current your data is, you could say  
-how right deleting branches soap, most 
-branches are not meant to live forever.  
-And I encourage you to do a little bit of 
-housecleaning now and then. And here's how  
-to delete a local branch. That's pretty easy. So 
-let's move to number seven. And see what we have.  
-Okay, feature uploader and main are there. The 
-first thing you know to know is you cannot delete  
-the current head branch. So if I were to 
-type git branch, dash D and feature uploader,  
-I would get an error message because I as I said, 
-I can delete the branches currently active that  
-is currently head. So first, I would have to 
-step away from that get switch main make main or  
-another branch active. And then I could use git 
-branch dash D, and feature uploader to do that  
-loader and deleted branch 
-feature uploader. So this is now  
-gone, right, I deleted that. In some cases, 
-you will again, get an error message. Because  
-let's say you have worked on a local feature 
-branch for some time produced some commits,  
-and then understand, okay, this, this doesn't 
-lead anywhere I need to delete that you've  
-produced new commits that are present nowhere 
-else. And if you try to delete that branch,  
-git will say, well, be careful, you are 
-about to delete data that is present  
-nowhere else these commits haven't 
-been integrated into other branches.  
-So are you really sure and that's when you need to 
-use the dash f option force to force the deletion.  
-Needless to say, I guess that this is quite a 
-destructive action with dash F for force. So  
-be careful you have a hard time getting 
-those commits back. You can Don't worry, but  
-it's it has its reasons why good warns you Well,  
-these commits are present, nowhere else are 
-you sure you want to delete that branch.  
-Another thing you might want to do is delete a 
-remote branch. And as you already know, working  
-with branches on the local end is different than 
-working on the remote. So it's a different command  
-git branch. Let's see what we have first. So 
-let's say we want to delete that origin feature  
-downloader branch here on the remote. And we can 
-do that using Git. clear up a little bit git push  
-again, and I want to remove something from origin. 
-Delete flag is used here for feature down loader.  
-And let's see, all right, boom, there it is gone. 
-So maybe another important thing to remember is  
-when deleting a branch doesn't matter if it's 
-a remote one of our local one, keep in mind to  
-check if you should delete its counterpart branch 
-to write the tracking branch. So for example,  
-if you've deleted a remote feature branch, it 
-might make sense to also delete its local tracking  
-branch. That way you make sure you aren't left 
-with lots of obsolete branches and a messy Git  
-repository, of course. So always keep in mind when 
-I delete one branch, is there a counterpart branch  
-on the other end, either local or remote? 
-And should I delete that too? Maybe. Okay,  
-deleting on the remote with git push, and 
-dash, dash, delete. Merging branches are  
-pretty interesting topic. Merging is probably 
-the most common way to integrate changes. So  
-essentially, you're bringing new commits from 
-another branch into your current head branch.  
-That's always the direction, right? You're, you're 
-integrating into your current local head branch  
-from another branch. And merging in most cases 
-is very easy in in in Git and very simple,  
-different to other version control systems. 
-So that's one reason why it's so popular.  
-And essentially, it just requires two 
-steps. So first, you need to make active,  
-the branch that you want to have the changes come 
-into that should receive the changes then execute,  
-execute the merge command with the name of the 
-branch that has the desire changes on let's see  
-what we have here in our example scenario.  
-Okay, so at the moment Maine has a new commit that 
-is this one here, title of error page corrected.  
-And uploader has also a different commit clarify 
-CSS background rule. So they diverged. And let's  
-say I want to integrate this commit here or 
-these changes the new commits on feature upload  
-into main, right, I want to bring the new 
-changes into the main branch, then I can just  
-switch to main, make main active, and then just 
-type Git merge feature, what was it uploader?  
-And voila, I'm getting an editor with a why 
-is that, because merging most often not always  
-produces a merge commit, right? Think of that 
-like a knot that combines or that connects two  
-branches. And this is a new commit. So I 
-can provide a new commit message. And I'm  
-going with what Git provides here as a standard 
-merge branch feature uploader. Just close that.  
-And let's see what happened. on Main wall, 
-I just combined these two branches and,  
-and I have all of the changes 
-here from both branches.  
-So this is what the end result looks like. As 
-I said, there is this merge commit here that  
-combines the changes from both branches. And 
-there is another way of integrating changes,  
-and that is rebasing, so this is just an 
-alternative way to integrate commits from  
-one branch into another. And it's very important 
-to stress that this is not better or worse,  
-this is not the the pro version and merges 
-the beginner version, it's simply different.  
-If and when you're using rebase, mainly 
-comes down to your personal preferences  
-and conventions in your team and the situation. 
-So some teams love rebase, some prefer merge,  
-and some do in some cases and not in other 
-cases. So it's not a matter of better or worse,  
-that's important to understand. So let's compare 
-merge and rebase. So you understand what's  
-the difference. So this is the the starting 
-situation, we have two branches, we have branch a  
-and branch B, and both have diverting changes 
-are different changes. So we've couple commits  
-here and one commit here. And they they 
-were branched off on this point here.  
-Now with merge, you've already seen that we would 
-receive this merge commit in the end this melting  
-point or this not that combines these two commits, 
-using rebase. On the other hand, the end result  
-will look quite different. So especially because 
-there is no separate merge commit that will be  
-created this big difference. Using rebase. It 
-appears as if development history had happened in  
-a straight line. There's not this, this branching 
-out anymore, it happens, or it looks like it was a  
-straight line. And this has its pros and its cons. 
-So but that's the result and the big difference.  
-And then starting the actual process is 
-pretty simple. But let's do that in practice.  
-This is case number nine. And let's see what we 
-have. Alright, so pretty similar situation like  
-before, on feature uploader, I have two commits 
-these here that are present nowhere else. And on  
-Main I have this year that is present 
-nowhere else. And let's say I would  
-like to integrate the changes from Maine 
-into my feature uploader branch, right.  
-So the first step would be to switch to feature 
-uploader to make that the head branch because,  
-as with merge, I am always integrating into my 
-head branch. Right, the head branch is the one  
-that's being manipulated. I am already on 
-feature uploader. So nothing to do here.  
-But the second step is Git rebase. And I want to 
-rebase on Main. And that was already it. Let's see  
-what happened. Now you can see this title of error 
-page corrected commit that used to be on Main  
-is now also present here on uploader. And as you 
-can see, there's not this branching out this,  
-this melting, not no merge commit. This looks like 
-a straight line. And that's the big difference  
-between merge and rebase. Again, if you're 
-using a graphical user interface like tower,  
-you can just drag and drop to merge or if you 
-keep the Alt key pressed it becomes rebase.  
-So these actions are pretty straightforward 
-in a graphical user interface.  
-Alright, and so this is rebasing 
-again, and final case or final action,  
-comparing branches, sometimes it's pretty helpful 
-to compare two branches. So for example, before  
-you decide to integrate or delete a branch, you 
-want to see how it differs from another branch.  
-Does it contain any new commits? Or not? Do I 
-still need those? What's the difference? So let's  
-do this in practice. And see what we have. 
-So similar situation should just before  
-feature uploader and main they diverged, they have 
-different commits. And let's compare that and see  
-what is actually different between them. So I can 
-type git log main double dot feature uploader. And  
-this shows me which commits are in our feature 
-uploaded branch, but not in our main branch.  
-And thereby I can see, okay, these two commits are 
-here, but not here. And this would also of course,  
-mean, if I integrated into main these two 
-commits, would make it into the integration.  
-So I can understand the 
-difference between those two.  
-If I want to see what's the difference between 
-a local and a remote branch, I can also do that  
-same thing, actually. So let's compare my local 
-Maine with the origin Maine. And the process is  
-pretty similar. git log, Maine. Let's start with 
-origin Maine, and Maine. And I can see okay,  
-I have one commit currently in my local main that 
-is not present in my remote branch origin main.  
-So I know. Okay, if I pushed now, I would upload 
-this commit here because it isn't present there.  
-All right. I think this is it for today. To help 
-you remember what you learned, I prepared a little  
-cheat sheet about this topics about all of 
-the different commands that you can use in  
-regard to working with branches. Just hop on Bitly 
-and get branch's cheat sheet and download that  
-for free. This comes in handy in your daily 
-work, I'm sure of it. And you can download  
-the cheat sheet for free as you like. I hope 
-there's a little bit of new information for you  
-here in this workshop and in the cheat sheet. 
-Have fun creating deleting renaming, tracking,  
-pushing, pulling, comparing branches and work 
-with Git. Thanks for your attention. Take care.
+For large language models to be truly useful, they often need to interact with external data sources and services and tools.
+And until recently, that was typically done with application programming interfaces or APIs.
+Now, in late 2024, Anthropic introduced a new open standard protocol, that's model context protocol or MCP.
+And it has already made quite the splash and it standardizes how applications provide context to LLMs.
+So let's define these two terms MCP and API and take a look at their similarities and differences.
+Now a good metaphor for MCP is that it's kind of like a USB-C port for your AI applications
+and that's because it standardize its connections between AI applications, LLM's
+and external data sources. So, if you think about
+Just your standard laptop that you might be using.
+Well, that probably has a set of USB-C ports attached to it.
+That's a really old one.
+And in those ports, well, you can plug in all sorts of
+cables and they will use the USB-c standard to interface with all sorts peripherals.
+So perhaps you've plugged one of these things into a monitor.
+Another one is connected to an external disk drive and perhaps you've also added in a power supply for the third one.
+It really doesn't matter who makes the peripherals, they all work together using this common standard.
+Well, MCP is kind of like that.
+So if we take a look at really what's in it, there is an MCP host and that also runs a number of MCP clients.
+Now, each client opens a JSON RPC 2.0 session using
+the protocol that comes with MCP, so the MCP protocol, and that connects to external MCP servers.
+So we have a client-server relationship here.
+Now, servers, those expose capabilities.
+So perhaps we've got a server for access to a database,
+maybe we've got another one which gives us access to a code repository.
+And then maybe we have another server that gives us to an email server.
+So if we go back to the USB-C analogy, we can think of the laptop as being kind of like the MCP host.
+The MCB protocol,
+this is really what's signified by the USB C connection.
+And then the drive and the monitor and the power supply.
+We can think of those really as MCP servers.
+Okay, so that's the architecture, but what are the capabilities of MCP?
+Well, it addresses two main needs of LLM applications.
+And when I say LLMs applications, I particularly mean AI agents.
+And those two needs, one is to provide context in the
+form of contextual data And the other is to enable tools and the usage of tools by these AI agents.
+So it provides a standard way for an AI agent to retrieve external context,
+which means things like documents and knowledge base entries and database records that sort of thing,
+and it can also execute actions or tools like maybe run a web search or call an external service or perform some calculations.
+Now that's all done through this MPC server that I mentioned and that advertises a bunch of primitives.
+So let's take a look at three of them.
+Now one of the primitives is called tools and tools are discrete actions or functions the AI can call.
+So a weather service that might expose a get weather tool or a calendar service that may expose a create event tool.
+Now the server name advertises each tools name,
+It's description, the input and output schema in its capabilities listing as well.
+Now when an LLM uses an MCP client to invoke a tool, the MCP server executes the underlying function.
+So that's tools.
+Now another primitive is resources.
+And resources are read only data items or documents the server can provide.
+Which the client can then retrieve on demand, so text files, database schema, file contents, that sort of thing.
+And then we also have as an additional primitive prompt templates,
+and those are predefined templates providing suggested prompts.
+Now, not every MCP server will use all three primitives.
+In fact, many just focus on tools currently,
+but the important thing to understand here,
+is an AI agent can query an MCP server at runtime
+to discover what primitives are available and then invoke those capabilities in a uniform way.
+Because every MCP's server publishes a machine readable catalog,
+so tools/list and resources/list and prompts/list,
+agents can discover and then use new functionality without redeploying code.
+OK, so that's MCPs.
+What about APIs?
+Well APIs are another way of letting one system access another system's functionality or data.
+An application programming interface is to find a set of rules or protocols describing how to request information or services.
+And by using APIs, developers can integrate capabilities from external systems instead of building everything from scratch.
+So an e-commerce site can use a payment API to process credit card payments, for example.
+Now the API acts as an abstraction layer.
+So we have the requesting application, the client,
+well that doesn't need to know the internal details of the service that it wants to invoke, the server.
+It's all kind of abstracted away from it,
+because the server processes the request and the only thing we need to know is how to format the requests
+and understand the responses using the API.
+That's really all there is to it.
+Now there are a lot of different API styles but One of the most ubiquitous is the RESTful API style.
+You can kind of think of that as really the, essentially the web default API.
+And a RESTFUL API communicates over HTTP.
+So this call here is an HTTP call with RESTfUL API where clients interact using standard HTTP methods.
+So they might use GET, for example, to retrieve data.
+They might use.
+Post to create data, put to update data, and delete to remove data.
+So for example, a REST API for a library system might have an endpoint that looks something like get, and then we say /books,
+/123 if we want to fetch book number one, two, threes, details.
+Or we might use a post and say post slash loans.
+If we want to borrow a book.
+Each such endpoint returns data, often in a JSON format, representing the result.
+And in fact, many commercial large language models are offered over REST.
+Send a JSON prompt, get a JSON completion back.
+AI agents might also use REST APIs to perform a web search or interact with a company's internal REST services.
+So, MCP and APIs, they share...
+Many similarities, not least that they are both considered client-server model architectures.
+So in a REST API, a client sends an HTTP request like those gets or posts
+I just mentioned to a server, and then the server returns a response in MCP.
+The MCP client sends the request like tools slash call to an MCP server and receives a response.
+So they really both offer layer of abstraction so that one system doesn't need to know the low level details of another's internals.
+The implementation details there, they're hidden.
+The client just follows the interface.
+So both MCP and APIs, they really help to simplify things,
+specifically simplifying integration, letting developers wire systems together instead of reinventing wheels.
+But MCP and APIs have some fundamental differences too.
+And let's start with purpose built,
+which we can really consider as MCP's kind of area,
+versus general purpose, which we could really think of as being more of API's domain.
+So the model context protocol, it was explicitly designed to integrate LLM applications
+with external data and tools.
+It standardizes patterns like providing context data and invoking tools in ways that align with how AI agents operate.
+But APIs on the other hand, they weren't created specifically with AI or LLMs in mind
+and that means that MCP bakes in certain assumptions that are useful for AI.
+Now that includes one of MCP's strongest advantages and that is the fact that it supports dynamic discovery.
+So what do I mean by that?
+Well, an MCP client can just simply ask an MCPserver, hey, what can you do?
+And it will get back a description of all available functions and data that server offers.
+Now the client or the LLM application using it can then adapt to whatever happens to be available.
+Traditional REST APIs, they don't typically expose an equivalent runtime discovery mechanism
+and if the API changes, new endpoints are added the client needs to be updated by a developer.
+MCP is kind of flipping this model because the AI agents
+can retrieve the latest capabilities list from a server each time it connects and then it can pick up new features automatically.
+Now another big difference relates to standardization as well,
+specifically standardization of interface,
+and the difference here is that every MCP server
+regardless of what service or what data it connects to
+speaks the same protocol and follows the same patterns, whereas each API is unique.
+The specific endpoints and the parameter formats and the authentication schemes, they vary between services.
+So if an AI agent wants to use five different REST APIs,
+it might need five different adapters, whereas five MCP servers respond to the exact same calls.
+Build once, integrate many.
+Okay, so similar, but different,
+but here's the kicker.
+When it comes to MCP, many MCP servers,
+when we actually look at their implementation, they actually use traditional APIs to do their work.
+In many cases, an MCP server is essentially a wrapper around an existing API,
+translating between the MCP format and then the underlying services native interface by using that API,
+like the mcp github server, which exposes high level tools such as repository/list as mcb primitives,
+but then it internally translates each tool call into the corresponding githubs rest api request.
+So MCP and apis are not adversaries they're layers, they're layers in an AI stack.
+MCP might use APIs under the hood while providing a more AI friendly interface on top.
+And today you can find MCP service for file systems, Google Maps,
+Docker, Spotify, and a growing list of enterprise data sources.
+And thanks to MCP, those services can now be better integrated into AI agents in a standardized way.

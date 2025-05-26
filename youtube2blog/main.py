@@ -63,22 +63,28 @@ with st.form('Formulário'):
 
     submit_button = st.form_submit_button('Submit')
 
+    file_path = os.path.join(os.getcwd(), "transcript.txt")
+
     with tab2: 
         if submit_button: 
-            transcription = Transcription()
-            transcription.get_transcript_text(id)
-    
-            with st.spinner("Loading..."):
-                time.sleep(3)
-                with open(file_path, "r") as file:
-                    file = file.read()
-                    llm_calling = LLM()
-                    st.markdown(llm_calling.call_llm(file))
+             transcription = Transcription()
+             transcription.get_transcript_text(id)
+
+             with st.spinner("Loading..."):
+                 time.sleep(3)
+                 with open(file_path, "r", encoding="utf-8") as file:
+                     file = file.read()
+                     llm_calling = LLM()
+                     st.markdown(llm_calling.call_llm(file))
+
     with tab3:
-         with open(file_path, "r") as file:
-             file = file.read()
-             st.markdown(file)
-                
+         try:
+             with open(file_path, "r", encoding="utf-8") as file:
+                 file = file.read()
+                 st.markdown(file)
+         except FileNotFoundError:
+             st.warning("Nenhuma transcrição encontrada ainda.")
+        
     
 
                 
