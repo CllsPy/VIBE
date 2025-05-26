@@ -1,10 +1,18 @@
 from transcription import Transcription
 from llm import LLM
 import streamlit as st
+import time
 
 st.set_page_config(
     page_title="IU2B",
-    page_icon="https://cdn-icons-png.flaticon.com/512/10026/10026285.png"
+    page_icon="https://cdn-icons-png.flaticon.com/512/10026/10026285.png",
+    layout="centered",
+    initial_sidebar_state='auto',
+    menu_items={
+        'Get Help': 'https://github.com/CllsPy',
+        'Report a bug': 'https://github.com/CllsPy',
+        'About': 'made with ♥ by CLL'
+    }
 )
 
 # copies 
@@ -33,16 +41,45 @@ st.markdown("""\n""")
 st.markdown("""\n""")
 
 st.markdown("#### Quickstart")
-st.markdown(quick_start_text)
+st.info(quick_start_text)
 
 st.markdown("""\n""")
 st.markdown("""\n""")
 
-id = st.text_input("Cole o ID de algum vídeo")
-transcription = Transcription()
-transcription.get_transcript_text(id)
+with st.sidebar:
+    st.info("made with ♥ by CLL")
 
-with open("transcript.txt", "r") as file:
-    file = file.read()
-    llm_calling = LLM()
-    st.markdown(llm_calling.call_llm(file))
+with st.form('Formulário'):
+    st.header("Resposta")
+
+    tab1, tab2, tab3 = st.tabs(["📈 Video ID", "Resposta", "Texto Original"])
+
+    with tab1: 
+        id = st.text_input("Cole o ID de algum vídeo")
+
+    submit_button = st.form_submit_button('Submit')
+
+    with tab2: 
+        if submit_button: 
+            transcription = Transcription()
+            transcription.get_transcript_text(id)
+    
+            with st.spinner("Loading..."):
+                time.sleep(3)
+                with open("transcript.txt", "r") as file:
+                    file = file.read()
+                    llm_calling = LLM()
+                    st.markdown(llm_calling.call_llm(file))
+    with tab3:
+         with open("transcript.txt", "r") as file:
+             file = file.read()
+             st.markdown(file)
+                
+    
+
+                
+        
+
+
+        
+        
