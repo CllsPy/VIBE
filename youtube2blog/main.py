@@ -2,6 +2,9 @@ from transcription import Transcription
 from llm import LLM
 import streamlit as st
 import time
+import sys
+import os
+os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 st.set_page_config(
     page_title="IU2B",
