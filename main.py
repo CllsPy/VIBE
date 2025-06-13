@@ -5,7 +5,7 @@ import time
 import sys
 import os
 
-file_path = os.path.join(os.getcwd(), "transcript.txt")
+file_path = os.path.join(os.path.dirname(__file__), "transcript.txt")
 
 st.set_page_config(
     page_title="IU2B",
