@@ -75,7 +75,7 @@ with st.form('Formulário'):
 
     submit_button = st.form_submit_button('Submit')
    
-    file_path = os.path.join(os.getcwd(), "transcript.txt")
+    
 
     with tab2: 
         if submit_button: 
