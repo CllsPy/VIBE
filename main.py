@@ -79,7 +79,7 @@ with st.form('Formulário'):
 
     with tab2: 
         if submit_button: 
-             transcription = Transcription()
+             transcription = Transcription(path=file_path)
              transcription.get_transcript_text(id)
 
              with st.spinner("Loading..."):
