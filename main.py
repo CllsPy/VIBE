@@ -2,11 +2,13 @@ from transcription import Transcription
 from llm import LLM
 import streamlit as st
 import time
-import sys
 import os
 
-file_path = os.path.join(os.path.dirname(__file__), "transcript.txt")
+# Inicializa a transcrição
+transcription = Transcription()
+file_path = transcription.get_path()
 
+# Configuração da página
 st.set_page_config(
     page_title="IU2B",
     page_icon="https://cdn-icons-png.flaticon.com/512/10026/10026285.png",
@@ -19,89 +21,76 @@ st.set_page_config(
     }
 )
 
-# copies 
-home_title = "IU2B"
-home_introduction = """Bem-vindo ao IU2B, onde o poder da IA generativa e a simplificidade do streamlit se encontram. 
-                       Nesta plataforma você será capaz de transformar vídeos do YouTube em um blog post! """
-quick_start_text = """
-Olá, para usar a nossa ferramenta é bem simples:
-1. Escolha um vídeo do YouTube (e.x https://www.youtube.com/watch?v=e2IbNHi4uCI)
-2. Remova o video_id, depois da igualdade (e2IbNHi4uCI)
-3. Cole o video_id na caixa de texto e pronto!
-"""
+# Oculta menu superior
+st.markdown("<style>#MainMenu{visibility:hidden;}</style>", unsafe_allow_html=True)
 
-st.markdown(
-    "<style>#MainMenu{visibility:hidden;}</style>",
-    unsafe_allow_html=True
-)
-
-st.markdown(f"""# {home_title} <span style=color:#2E9BF5><font size=5>Beta</font></span>""",unsafe_allow_html=True)
-
-st.markdown("""\n""")
+# Título e introdução
+st.markdown(f"""# IU2B <span style=color:#2E9BF5><font size=5>Beta</font></span>""", unsafe_allow_html=True)
 st.markdown("#### Saudações")
-st.write(home_introduction)
-
-st.markdown("""\n""")
-st.markdown("""\n""")
+st.write("""
+Bem-vindo ao IU2B, onde o poder da IA generativa e a simplicidade do Streamlit se encontram. 
+Nesta plataforma você será capaz de transformar vídeos do YouTube em um blog post!
+""")
 
 st.markdown("#### Quickstart")
-st.info(quick_start_text)
+st.info("""
+Olá, para usar a nossa ferramenta é bem simples:
+1. Escolha um vídeo do YouTube (ex: https://www.youtube.com/watch?v=e2IbNHi4uCI)
+2. Copie o ID do vídeo (e2IbNHi4uCI)
+3. Cole o ID na caixa de texto e pronto!
+""")
 
-st.markdown("""\n""")
-st.markdown("""\n""")
-
+# Sidebar com senha
 with st.sidebar:
     st.info("made with ♥ by CLL")
     api = st.text_input("Password", type="password")
-    
     st.markdown(
         """
-    <style>
-        [title="Show password text"] {
-            display: none;
-        }
-    </style>
-    """,
+        <style>
+            [title="Show password text"] {
+                display: none;
+            }
+        </style>
+        """,
         unsafe_allow_html=True,
     )
 
+# Form principal
 with st.form('Formulário'):
     st.header("Resposta")
 
     tab1, tab2, tab3 = st.tabs(["📈 Video ID", "Resposta", "Texto Original"])
 
-    with tab1: 
-        id = st.text_input("Cole o ID de algum vídeo")
+    with tab1:
+        video_id = st.text_input("Cole o ID de algum vídeo")
 
     submit_button = st.form_submit_button('Submit')
-   
-    
 
-    with tab2: 
-        if submit_button: 
-             transcription = Transcription(path=file_path)
-             transcription.get_transcript_text(id)
+    with tab2:
+        if submit_button:
+            if not video_id:
+                st.warning("Por favor, forneça um ID de vídeo.")
+            else:
+                try:
+                    transcription.get_transcript_text(video_id)
+                    with st.spinner("Carregando resposta com IA..."):
+                        time.sleep(2)
 
-             with st.spinner("Loading..."):
-                 time.sleep(3)
-                 with open(file_path, "r", encoding="utf-8") as file:
-                     file = file.read()
-                     llm_calling = LLM()
-                     st.markdown(llm_calling.call_llm(file, api))
+                        if os.path.exists(file_path):
+                            with open(file_path, "r", encoding="utf-8") as file:
+                                transcript_text = file.read()
+                                llm = LLM()
+                                resposta = llm.call_llm(transcript_text, api)
+                                st.markdown(resposta)
+                        else:
+                            st.warning("Transcrição não foi encontrada após a tentativa de geração.")
+
+                except RuntimeError as e:
+                    st.error(str(e))
 
     with tab3:
-         try:
-             with open(file_path, "r", encoding="utf-8") as file:
-                 file = file.read()
-                 st.write(file)
-         except FileNotFoundError:
-             st.warning("Nenhuma transcrição encontrada ainda.")
-        
-    
-
-                
-        
-
-
-        
-        
+        if os.path.exists(file_path):
+            with open(file_path, "r", encoding="utf-8") as file:
+                st.write(file.read())
+        else:
+            st.info("Nenhuma transcrição encontrada ainda.")
