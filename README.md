@@ -52,7 +52,6 @@ python-dotenv
    ```
 
 ### Without Docker
-
 1. Clone the repository.
 2. Install requirements:
 
@@ -66,13 +65,8 @@ python-dotenv
    python main.py --url <YOUTUBE_VIDEO_URL>
    ```
 
-## Authors
-Your Name – GitHub
-
-
 ## License
 This project is licensed under the MIT License.
-
 
 ## Acknowledgements
 * YouTube Data and Transcript APIs.
